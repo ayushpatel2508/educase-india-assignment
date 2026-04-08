@@ -1,0 +1,154 @@
+{
+  "info": {
+    "_postman_id": "b7f6af8d-a505-4169-9a04-b5d967b2c3a1",
+    "name": "educase-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47795688"
+  },
+  "item": [
+    {
+      "name": "add new school",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Delhi Public School\",\n  \"address\": \"Sector 12, Dwarka, Delhi - 110078\",\n  \"latitude\": 28.6139,\n  \"longitude\": 77.2090\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/schools",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "list nearby schools",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/schools/list?latitude=28.6139&longitude=77.2090",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools",
+            "list"
+          ],
+          "query": [
+            {
+              "key": "latitude",
+              "value": "28.6139"
+            },
+            {
+              "key": "longitude",
+              "value": "77.2090"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get school by id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/schools/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "edit school by id",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Updated School Name\",\n  \"address\": \"Updated Address\",\n  \"latitude\": 28.6200,\n  \"longitude\": 77.2100\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/schools/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete school by id",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/schools/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "schools",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://educase-india-assignment-9dsq.onrender.com",
+      "type": "string"
+    }
+  ]
+}
