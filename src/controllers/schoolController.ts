@@ -17,6 +17,10 @@ interface SchoolWithDistance extends School {
   distance: number;
 }
 
+interface PgError extends Error {
+  code?: string;
+}
+
 /**
  * Add a new school to the database
  * @route POST /api/schools/add
@@ -65,7 +69,14 @@ export const addSchool = async (req: Request, res: Response): Promise<void> => {
       data: result.rows[0],
     });
   } catch (error) {
-    const err = error as Error;
+    const err = error as PgError;
+    if (err.code === "23505") {
+      res.status(409).json({
+        success: false,
+        message: "School with same name and address already exists",
+      });
+      return;
+    }
     console.error("Error adding school:", err);
     res.status(500).json({
       success: false,
@@ -272,7 +283,7 @@ export const updateSchool = async (
       data: result.rows[0],
     });
   } catch (error) {
-    const err = error as Error;
+    const err = error as PgError;
     console.error("Error updating school:", err);
     res.status(500).json({
       success: false,

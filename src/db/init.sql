@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS schools (
     latitude FLOAT NOT NULL,
     longitude FLOAT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT uq_school_name_address UNIQUE (name, address)
 );
 
 -- Create index on coordinates for faster queries
