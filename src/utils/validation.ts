@@ -74,4 +74,5 @@ const validateListSchools = (
   }
 };
 
-export { validateSchool, validateListSchools, SchoolData, ListSchoolsParams };
+export { validateSchool, validateListSchools };
+export type { SchoolData, ListSchoolsParams };
