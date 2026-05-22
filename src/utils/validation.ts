@@ -15,14 +15,14 @@ interface ListSchoolsParams {
 const schoolSchema = z.object({
   name: z
     .string()
+    .trim()
     .min(2, "School name must be at least 2 characters")
-    .max(255, "School name cannot exceed 255 characters")
-    .trim(),
+    .max(255, "School name cannot exceed 255 characters"),
   address: z
     .string()
+    .trim()
     .min(5, "Address must be at least 5 characters")
-    .max(500, "Address cannot exceed 500 characters")
-    .trim(),
+    .max(500, "Address cannot exceed 500 characters"),
   latitude: z
     .number()
     .min(-90, "Latitude must be between -90 and 90")

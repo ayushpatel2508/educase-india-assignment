@@ -34,6 +34,26 @@ describe("Input Validation", () => {
       });
       expect(result.success).toBe(false);
     });
+
+    it("should pass when coordinates are exactly on the boundary limits", () => {
+      const result = validateSchool({
+        name: "Boundary School",
+        address: "123 Education Lane, Bangalore",
+        latitude: 90.0,
+        longitude: -180.0,
+      });
+      expect(result.success).toBe(true);
+    });
+
+    it("should fail when name is only whitespace", () => {
+      const result = validateSchool({
+        name: "   ",
+        address: "123 Education Lane, Bangalore",
+        latitude: 12.9716,
+        longitude: 77.5946,
+      });
+      expect(result.success).toBe(false);
+    });
   });
 
   describe("validateListSchools", () => {
